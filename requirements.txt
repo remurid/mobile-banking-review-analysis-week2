@@ -1,0 +1,9 @@
+google-play-scraper 
+pandas 
+spacy 
+textblob 
+seaborn 
+matplotlib 
+transformers 
+scikit-learn 
+oracledb

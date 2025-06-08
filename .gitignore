@@ -1,0 +1,15 @@
+# Data files
+data/
+*.csv
+
+# Jupyter Notebook checkpoints
+*.ipynb_checkpoints/
+
+# Python cache files
+__pycache__/
+
+# VS Code settings
+.vscode/
+
+# Virtual environments
+.week2_env/
