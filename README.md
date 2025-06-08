@@ -37,8 +37,23 @@ This project collects, preprocesses, and analyzes user reviews for three Ethiopi
 - `data/`: Output folder for cleaned CSVs.
 
 ## Requirements
+
 - Python 3.8+
-- `google-play-scraper`, `pandas`
+- Install dependencies with:
+
+   ```powershell
+   pip install -r requirements.txt
+   ```
+
+PyTorch is required for running the sentiment analysis pipeline. For more details, see [PyTorch installation guide](https://pytorch.org/get-started/locally/).
+
+## Usage
+
+To run the sentiment analysis pipeline for all banks:
+
+```powershell
+python scripts/sentiment_analysis.py
+```
 
 ## Results
 - 1,200+ reviews collected with <5% missing data.
