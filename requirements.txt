@@ -7,3 +7,5 @@ matplotlib
 transformers 
 scikit-learn 
 oracledb
+torch
+tensorflow
