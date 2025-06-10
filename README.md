@@ -96,6 +96,10 @@ python scripts/insert_to_oracle.py
 ## Data Files
 - Cleaned and analyzed CSVs are saved in the `data/` directory.
 
+## Database Export
+- The full Oracle schema and data can be restored using the SQL dump in `db_export/oracle_dump.sql`.
+- This allows others to restore the database for reproducibility.
+
 ---
 
 Feel free to update this README with further analysis or results!
