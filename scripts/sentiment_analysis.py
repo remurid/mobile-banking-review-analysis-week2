@@ -72,6 +72,13 @@ if __name__ == "__main__":
         ("./data/BOA_reviews_cleaned.csv", "BOA"),
         ("./data/Dashen Bank_reviews_cleaned.csv", "Dashen Bank"),
     ]
+    analyzed_files = []
     for path, name in banks:
         analyzer = ReviewAnalyzer(path, name)
         analyzer.run_pipeline()
+        analyzed_files.append(os.path.join("./data", f"{name}_reviews_analyzed.csv"))
+
+    # Combine all analyzed CSVs into one
+    combined = pd.concat([pd.read_csv(f) for f in analyzed_files], ignore_index=True)
+    combined.to_csv("./data/all_banks_reviews_analyzed.csv", index=False)
+    print("Combined analyzed reviews saved to ./data/all_banks_reviews_analyzed.csv")

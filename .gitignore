@@ -13,3 +13,5 @@ __pycache__/
 
 # Virtual environments
 .week2_env/
+
+docker-compose.yml

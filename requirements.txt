@@ -7,4 +7,5 @@ matplotlib
 transformers 
 scikit-learn 
 oracledb
-PyTorch
+torch
+cx_Oracle
