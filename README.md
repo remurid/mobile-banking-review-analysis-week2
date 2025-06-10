@@ -77,7 +77,6 @@ ALTER USER BANKREVIEWS QUOTA UNLIMITED ON USERS;
 ## Troubleshooting
 - If you see `DPY-4004: invalid number`, check for NaN or invalid values in your CSVs.
 - If you see `ORA-28009`, make sure you connect as SYSDBA when creating users.
-- If you see `DPI-1047`, install the Oracle Instant Client or use the pure Python `oracledb` package (already in requirements.txt).
 
 ---
 
@@ -101,5 +100,3 @@ python scripts/insert_to_oracle.py
 - This allows others to restore the database for reproducibility.
 
 ---
-
-Feel free to update this README with further analysis or results!
