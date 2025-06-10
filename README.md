@@ -36,28 +36,65 @@ This project collects, preprocesses, and analyzes user reviews for three Ethiopi
 - `scripts/collect_and_preprocess.py`: Main script to run the workflow.
 - `data/`: Output folder for cleaned CSVs.
 
+## Quickstart: Run the Full Workflow in a Notebook
+
+A Jupyter notebook is provided to run all main scripts step-by-step:
+
+1. Open `notebooks/run_all_workflow.ipynb` in VS Code or Jupyter.
+2. Run each cell in order to:
+   - Collect and preprocess reviews
+   - Run sentiment and thematic analysis
+   - Insert analyzed data into Oracle
+
+---
+
 ## Requirements
 
 - Python 3.8+
-- Install dependencies with:
+- Install dependencies:
 
    ```powershell
    pip install -r requirements.txt
    ```
 
-PyTorch is required for running the sentiment analysis pipeline. For more details, see [PyTorch installation guide](https://pytorch.org/get-started/locally/).
+- For Oracle DB:
+   - Start Docker Desktop and run:
+     ```powershell
+     docker compose up -d
+     ```
+   - Create the `BANKREVIEWS` user (see below).
 
-## Usage
+## Oracle User Setup
 
-To run the sentiment analysis pipeline for all banks:
+Connect as SYSDBA (see below) and run:
 
-```powershell
-python scripts/sentiment_analysis.py
+```sql
+CREATE USER BANKREVIEWS IDENTIFIED BY "P@ssw0rd";
+GRANT CONNECT, RESOURCE TO BANKREVIEWS;
+ALTER USER BANKREVIEWS QUOTA UNLIMITED ON USERS;
 ```
 
-## Results
-- 1,200+ reviews collected with <5% missing data.
-- Clean, analysis-ready CSVs for each bank and all banks combined.
+## Troubleshooting
+- If you see `DPY-4004: invalid number`, check for NaN or invalid values in your CSVs.
+- If you see `ORA-28009`, make sure you connect as SYSDBA when creating users.
+- If you see `DPI-1047`, install the Oracle Instant Client or use the pure Python `oracledb` package (already in requirements.txt).
+
+---
+
+## Manual Script Usage
+
+You can also run each script individually from the terminal:
+
+```powershell
+python scripts/collect_and_preprocess.py
+python scripts/sentiment_analysis.py
+python scripts/insert_to_oracle.py
+```
+
+---
+
+## Data Files
+- Cleaned and analyzed CSVs are saved in the `data/` directory.
 
 ---
 
